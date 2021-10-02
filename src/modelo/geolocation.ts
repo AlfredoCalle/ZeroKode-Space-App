@@ -6,7 +6,7 @@ function getCoordinates(): Promise<GeolocationPosition> {
   });
 }
 
-export async function currentLocation(): Promise<Coordinates | null> {
+export async function currentLocation(): Promise<Coordinates> {
     if (!('geolocation' in navigator)) {
         return null;
     }
