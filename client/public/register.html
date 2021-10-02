@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <script src="./js/modelo/data.js"></script>
+    <title>Covid con K</title>
+  </head>
+  <body>
+      <h1>Registrar</h1>
+
+      <form id="form-registrar">
+        <input id="nombre-usuario" type="text" placeholder="Nombre de usuario"/>
+        <input id="nombre-completo" type="text" placeholder="Nombre completo"/>
+        <input id="email" type="email" placeholder="Email"/>
+        <input id="contrasena" type="password" placeholder="Contrasena"/>
+        <select id="select-country"></select>
+      </form>
+      <script>
+        let select = document.querySelector("#select-country");
+        let data = slurpAndParseFile("./data/12-31-2020.csv");
+      </script>
+  </body>
+</html>
