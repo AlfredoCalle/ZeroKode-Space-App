@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/AlfredoCalle/ZeroKode-Space-App#readme",
   "devDependencies": {
+    "@types/node": "^16.10.2",
     "typescript": "^4.4.3"
   }
 }

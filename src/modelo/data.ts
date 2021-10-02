@@ -1,11 +1,11 @@
 import {readFileSync} from 'fs';
 
-interface Coordinates {
+export interface Coordinates {
     lat: number,
     lon: number
 }
 
-interface COVIDData {
+export interface COVIDData {
     country: string,
     coords: Coordinates,
     deaths: number,
@@ -31,7 +31,7 @@ function parseData(data: string[]): COVIDData[] {
     return parsedData;
 }
 
-function slurpAndParseFile(fname: string): COVIDData[] {
+export function slurpAndParseFile(fname: string): COVIDData[] {
     let data = readFileSync(fname, {encoding: 'utf-8'});
     // Splice 1 to skip header
     let lines = data.split('\n').splice(1);
