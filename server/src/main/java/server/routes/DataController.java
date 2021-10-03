@@ -5,6 +5,7 @@ import io.vertx.core.json.Json;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
+import io.vertx.ext.web.handler.CorsHandler;
 
 import static server.model.DataParser.parseData;
 
@@ -13,6 +14,7 @@ public class DataController {
 
     public static Router getRouter(Vertx vertx) {
         Router router = Router.router(vertx);
+        router.route().handler(CorsHandler.create());
         router.get("/api/v1/covid-data").produces("application/json").handler(DataController::sendData);
         return router;
     }

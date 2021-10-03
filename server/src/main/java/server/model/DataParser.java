@@ -9,7 +9,9 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import static java.util.stream.Collectors.groupingBy;
 
 public class DataParser {
     public record Coordinate(double lat, double lon) {};
@@ -50,21 +52,21 @@ public class DataParser {
         }
     }
 
-    public static Optional<List<COVIDData>> readAllLines(String filename) {
+    public static Optional<Map<String, List<COVIDData>>> readAllLines(String filename) {
         try (var reader = new BufferedReader(new FileReader(filename))) {
             return Optional.of(reader.lines()
                     .skip(1)
                     .map(line -> makeCOVIDRecord(line.split(",")))
                     .filter(Optional::isPresent)
                     .map(Optional::get)
-                    .toList());
+                    .collect(groupingBy(COVIDData::country)));
         } catch (IOException e) {
             System.err.println(e);
             return Optional.empty();
         }
     }
 
-    public static Optional<List<COVIDData>> parseData(String filename) {
+    public static Optional<Map<String, List<COVIDData>>> parseData(String filename) {
         return readAllLines(fileNameResource(filename).orElse(""));
     }
 }

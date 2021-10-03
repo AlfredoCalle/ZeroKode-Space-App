@@ -3,7 +3,6 @@ package server;
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Vertx;
 import io.vertx.ext.web.Router;
-
 import server.routes.DataController;
 
 public class App extends AbstractVerticle {
