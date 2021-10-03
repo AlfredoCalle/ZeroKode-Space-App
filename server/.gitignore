@@ -3,6 +3,10 @@
 gradle
 bin
 gradlew*
+.classpath
+.project
+.nvimlog
+.settings
 
 # Ignore Gradle build output directory
 build
